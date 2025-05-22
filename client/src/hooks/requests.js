@@ -2,8 +2,13 @@ const API_URL = "https://nasa-project-server-chi.vercel.app/v1";
 
 // Load planets and return as JSON.
 async function httpGetPlanets() {
-  const response = await fetch(`${API_URL}/planets`);
+  try{
+    const response = await fetch(`${API_URL}/planets`);
   return await response.json();
+  }catch(err) {
+    console.log(err)
+  }
+  
 }
 
 // Load launches, sort by flight number, and return as JSON.
